@@ -1,0 +1,68 @@
+1. In the BallManager class, create a static reference to it.
+
+2. In the BallManager class, create an Awake method that refences the static instance.
+
+3. In the BallManager class, create a static event of type Action named OnDisableBall.
+
+4. In the Ball class, create an Awake method and inside subscribe to the OnDisableBall event and associate it with a function to be created named DisableMe.
+
+5. In the Ball class, create the function named DisableMe which sets the gameObject SetActive to false.
+
+6. In the Ball class, create an OnDestroy function that unsubscribes to the OnDisableBall event.
+
+7. In the BallManager class, create a function called DisableBall that will invoke the OnDisableBall event. Use the null conditional operator in case there are no events subscribed, it won't give us an error. Make this function public and assign a button to it so that we can call this by clicking the button.
+
+[You can compile and test here and all the balls should be disabled with clicking the button]
+
+8. In the DisbledText script, create a serialized field of type TextMeshProGUI named disabledText.
+
+9. In the DisbledText script, create an Awake method and inside subscribe to the OnDisableBall event and associate it with a function to be created named ShowText.
+
+10. Create the ShowText function that sets the disabledText enabled to true to display the text.
+
+11. Create an OnDestroy function that unsubscribes to the OnDisableBall event.
+
+[Compile and test that the text will display when the button is clicked]
+
+12. In the BallManager script add an int to the Action so that we can pass it as a variable when the event is triggered.
+
+13. Create a serialized integer field named ballToDisable so that we can enter a number in the inspector.
+
+14. Pass in the ballToDisable variable into the OnDisableBall invokation.
+
+15. In the Ball script, create a serialized field named ballNumber.
+
+16. Modify the DisableMe function so that we can pass in the number of the ball to be disabled. Inside the function, check to see if the number passed is equal to our ball number. If it is, we SetActive to false.
+
+[Compile here and test that only the ball number that we enter into the inspector is disabled.]
+
+17. In the DisbledText script, modify the UI text so that it displays the number of the ball that is disabled.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

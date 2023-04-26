@@ -1,0 +1,27 @@
+using System;
+using UnityEngine;
+
+public class BallManager : MonoBehaviour
+{
+    // A static instance of BallManager class
+    public static BallManager Instance;
+
+    // A static event of type Action
+    public static event Action<int> OnDisableBall;
+
+    // a serialized integer field named ballToDisable so that we can enter a number in the inspector.
+    [SerializeField] private int ballToDisable;
+
+    // An Awake method that references the static instance of BallManager
+    private void Awake(){
+        Instance = this;
+    }
+
+    //  Function to invoke the OnDisableBall event
+        //  Use the null conditional operator in case there are no events subscribed
+    public void DisableBall()
+    {
+        OnDisableBall?.Invoke(ballToDisable);
+    }
+
+}

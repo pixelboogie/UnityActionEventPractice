@@ -1,0 +1,26 @@
+using UnityEngine;
+using TMPro;
+
+public class DisabledText : MonoBehaviour
+{
+    // a serialized field of type TextMeshProGUI named disabledText
+    [SerializeField] private TextMeshProUGUI disabledText;
+
+    // an Awake method and inside subscribe to the OnDisableBall event and associate it with a function to be created named ShowText
+    void Awake()
+    {
+        BallManager.OnDisableBall += ShowText;
+    }
+
+    // an OnDestroy function that unsubscribes to the OnDisableBall event
+    void OnDestroy()
+    {
+        BallManager.OnDisableBall -= ShowText;
+    }
+
+    // the ShowText function that sets the disabledText enabled to true to display the text
+    void ShowText(int ballNumberToDisable){
+        // disabledText.enabled = true;
+        disabledText.text = "Disabled ball: " + ballNumberToDisable;
+    }
+}

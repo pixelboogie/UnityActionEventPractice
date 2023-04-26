@@ -1,0 +1,31 @@
+using UnityEngine;
+
+public class Ball : MonoBehaviour
+{
+    [SerializeField] private int ballNumber;
+
+
+    // an Awake method and inside subscribe to the OnDisableBall event
+    private void Awake()
+    {
+        BallManager.OnDisableBall += DisableMe;
+    }
+
+    //  function that unsubscribes to the OnDisableBall event
+    private void OnDestroy()
+    {
+        BallManager.OnDisableBall -= DisableMe;
+    }
+
+
+    // the function named DisableMe which sets the gameObject SetActive to false
+    private void DisableMe(int ballNumberToDisable)
+    {
+        if(ballNumberToDisable == ballNumber)
+        {
+            gameObject.SetActive(false);
+
+        }
+    }
+
+}
